@@ -85,6 +85,17 @@ main {
     align-items: start;
 }
 
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.2s;
+}
+
+.card-link:hover {
+    transform: scale(1.05);
+}
+
 .card {
     box-sizing: border-box;
     background: white;
@@ -140,7 +151,6 @@ main {
 .game-card__content {
     width: 600px;
     padding: 48px;
-
 }
 
 .game-card__name {
