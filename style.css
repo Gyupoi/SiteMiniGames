@@ -14,12 +14,18 @@ body {
 }
 
 .top {
-    height: 800px;
-    background: rgba(225, 255, 143, 1);
+    padding-top: 196px;
+    padding-bottom: 156px;
+    background:
+        url(/img/bg1.png) right top no-repeat,
+        url(/img/Star\ 1.png) 63px 94px no-repeat,
+        url(img/Star\ 2.png) 156px 69px no-repeat,
+        url(img/Star\ 3.png) calc(100% - 455px) calc(100% - 135px) no-repeat,
+        url(img/Star\ 4.png) calc(100% - 344px) calc(100% - 59px) no-repeat,
+        rgba(225, 255, 143, 1);
 }
 
 .top__title {
-    padding-top: 196px;
     max-width: 769px;
     font-size: 64px;
 }
@@ -43,20 +49,15 @@ body {
     transition: all 0.2s;
 }
 
-.top__btn {
-    margin-bottom: 160px;
-}
-
 .btn:hover {
     cursor: pointer;
     background: white;
     color: rgba(32, 32, 39, 1);
 }
 
-.top__scroll {
-    border: 1px solid;
+.line-games {
     background: rgba(188, 236, 48, 1);
-    height: 90px;
+    padding: 27px 49px;
 }
 
 main {
