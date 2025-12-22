@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -79,17 +80,22 @@ main {
 }
 
 .games-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 32px;
 }
 
 .card-link {
+    flex: 1 1 calc(33.333% - 24px);
     text-decoration: none;
     color: inherit;
     display: block;
     transition: all 0.2s;
+}
+
+.card-link_end {
+    align-self: end;
+    ;
 }
 
 .card-link:hover {
@@ -99,7 +105,6 @@ main {
 .card {
     box-sizing: border-box;
     background: white;
-    width: 378px;
     border-radius: 30px;
 }
 
@@ -110,25 +115,24 @@ main {
     object-fit: cover;
 }
 
+.card__wrapper {
+    padding: 32px;
+}
+
 .card__number {
-    width: 108px;
-    height: 36px;
-    margin-top: 32px;
+    max-width: 108px;
     margin-bottom: 16px;
-    margin-left: 32px;
     border-radius: 53px;
     background: rgba(247, 247, 247, 1);
     display: flex;
-    align-items: center;
     justify-content: center;
+    padding: 10px;
 }
 
 .card__name {
-    width: 306px;
+    max-width: 306px;
     font-size: 32px;
     font-weight: 700;
-    padding-bottom: 36px;
-    margin-left: 32px;
 }
 
 .games {
