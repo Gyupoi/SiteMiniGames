@@ -74,13 +74,13 @@ main {
     padding-bottom: 144px;
 }
 
-.main__title {
+.games-list__title {
     font-size: 64px;
     font-weight: 700;
     color: white;
 }
 
-.main__description {
+.games-list__description {
     max-width: 788px;
     color: rgba(255, 255, 255, 1);
     font-size: 24px;
@@ -88,7 +88,7 @@ main {
     padding-bottom: 72px;
 }
 
-.games-list {
+.games-list__content {
     display: flex;
     flex-wrap: wrap;
     gap: 0 32px;
@@ -147,10 +147,16 @@ main {
 }
 
 .games {
-    margin-top: 72px;
     display: flex;
     flex-direction: column;
     gap: 32px;
+}
+
+.games__title {
+    font-size: 64px;
+    font-weight: 700;
+    color: white;
+    padding-bottom: 40px;
 }
 
 .game-card {
