@@ -61,7 +61,16 @@ body {
 }
 
 main {
-    background-color: rgba(32, 32, 39, 1);
+    background:
+        url(/img/mainStar1.png) right 77px no-repeat,
+        url(/img/mainStar2.png) 25px 770px no-repeat,
+        url(img/mainStar3.png) 40px 822px no-repeat,
+        url(img/mainStar4.png) calc(100% - 124px) 1563px no-repeat,
+        url(img/mainStar5.png) calc(100% - 45px) 1596px no-repeat,
+        url(img/mainStar7.png) calc(100% - 52px) calc(100% - 65px) no-repeat,
+        url(img/mainStar6.png) calc(100% - 151px) calc(100% - 45px) no-repeat,
+        rgba(32, 32, 39, 1);
+    padding-top: 95px;
     padding-bottom: 144px;
 }
 
@@ -69,7 +78,6 @@ main {
     font-size: 64px;
     font-weight: 700;
     color: white;
-    padding-top: 95px;
 }
 
 .main__description {
@@ -84,6 +92,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 0 32px;
+    padding-bottom: 96px;
 }
 
 .card-link {
@@ -114,6 +123,7 @@ main {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    max-height: 314px;
 }
 
 .card__wrapper {
