@@ -4,6 +4,10 @@
     scroll-behavior: smooth;
 }
 
+button {
+    font-family: 'Montserrat';
+}
+
 body {
     font-family: 'Montserrat';
 }
