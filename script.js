@@ -31,3 +31,40 @@ const guessNumberGame = () => {
         }
     }
 };
+
+function arithmeticTasks() {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    const operators = ["+", "-", "*", "/"];
+    const operator = operators[Math.floor(Math.random() * operators.length)];
+
+    let question;
+    let correctAnswer;
+
+    if (operator === "/") {
+        correctAnswer = num1;
+        divisible = num1 * num2;
+        question = `${divisible} / ${num2}`;
+    }
+    else if (operator === "+") {
+        correctAnswer = num1 + num2;
+        question = `${num1} + ${num2}`;
+    }
+    else if (operator === "-") {
+        correctAnswer = num1 - num2;
+        question = `${num1} - ${num2}`;
+    }
+    else if (operator = "*") {
+        correctAnswer = num1 * num2;
+        question = `${num1} * ${num2}`;
+    }
+
+    const userAnswer = Number(prompt(`Решите пример: ${question}`));
+
+    if (userAnswer === correctAnswer) {
+        alert(`Верно!!!`)
+    }
+    else {
+        alert(`Не верно!!! Верный ответ : ${correctAnswer}`);
+    }
+}
