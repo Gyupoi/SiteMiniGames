@@ -68,3 +68,52 @@ function arithmeticTasks() {
         alert(`Не верно!!! Верный ответ : ${correctAnswer}`);
     }
 }
+
+function Shifter() {
+    const userText = prompt(`Введите любое слово или фразу`);
+
+    if (userText !== null) {
+        const reversedText = userText.split("").reverse().join("");
+        alert(reversedText);
+    } else {
+        alert("Вы ничего не ввели.");
+    }
+}
+
+
+const quiz = [
+    {
+        question: "Какой цвет небо?",
+        options: ["1. Красный", "2. Синий", "3. Зеленый"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько дней в неделе?",
+        options: ["1. Шесть", "2. Семь", "3. Восемь"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько у человека пальцев на одной руке?",
+        options: ["1. Четыре", "2. Пять", "3. Шесть"],
+        correctAnswer: 2
+    }
+];
+
+function startQuiz() {
+    let score = 0;
+
+    for (let i = 0; i < quiz.length; i++) {
+        const currentQuestion = quiz[i];
+
+        let message = currentQuestion.question + "\n";
+        message += currentQuestion.options.join("\n");
+
+        const userAnswer = prompt(message);
+
+        if (Number(userAnswer) === currentQuestion.correctAnswer) {
+            score++;
+        }
+    }
+
+    alert("Вы ответили правильно на " + score + " из " + quiz.length + " вопросов.");
+}
