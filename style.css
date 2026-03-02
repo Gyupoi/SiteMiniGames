@@ -59,9 +59,38 @@ body {
     color: rgba(32, 32, 39, 1);
 }
 
-.line-games {
+.line-wrapper {
+    width: 100%;
+    overflow: hidden;
     background: rgba(188, 236, 48, 1);
+}
+
+.line-games {
+    display: flex;
+}
+
+.line-track {
+    display: flex;
+    gap: 51px;
     padding: 27px 49px;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.line-games__names {
+    font-weight: 700;
+    font-size: 30px;
+    white-space: nowrap;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 main {
