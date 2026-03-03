@@ -151,3 +151,13 @@ function rockPaperScissors() {
         "\nРезультат: " + result
     );
 }
+
+const btn_color = document.querySelector('#btn_color');
+
+btn_color.addEventListener("click", () => {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let color = (`rgb(${r}, ${g}, ${b})`);
+    document.querySelector('main').style.backgroundColor = color;
+})
