@@ -16,18 +16,33 @@ const guessNumberGame = () => {
     let guess = null;
 
     while (guess !== secretNumber) {
-        guess = Number(prompt("Угадайте число от 1 до 100:"));
+        guess = prompt("Угадайте число от 1 до 100:");
 
-        if (!guess || guess < 1 || guess > 100) {
+        if (guess === null) {
+            alert("Игра отменена");
+            break;
         }
-        else if (guess < secretNumber) {
-            alert("Загаданное число БОЛЬШЕ 📈");
+        else if (guess === "") {
+            alert("Введите число от 1 до 100");
         }
-        else if (guess > secretNumber) {
-            alert("Загаданное число МЕНЬШЕ 📉");
+        else if (isNaN(guess)) {
+            alert("Это не число. Попробуйте снова");
         }
         else {
-            alert(`🎉 Вы угадали число ${secretNumber}!`);
+            guess = Number(guess);
+
+            if (guess < 1 || guess > 100) {
+                alert("Число должно быть от 1 до 100");
+            }
+            else if (guess < secretNumber) {
+                alert("Загаданное число БОЛЬШЕ 📈");
+            }
+            else if (guess > secretNumber) {
+                alert("Загаданное число МЕНЬШЕ 📉");
+            }
+            else {
+                alert(`🎉 Вы угадали число ${secretNumber}!`);
+            }
         }
     }
 };
@@ -43,7 +58,7 @@ function arithmeticTasks() {
 
     if (operator === "/") {
         correctAnswer = num1;
-        divisible = num1 * num2;
+        const divisible = num1 * num2;
         question = `${divisible} / ${num2}`;
     }
     else if (operator === "+") {
@@ -54,13 +69,24 @@ function arithmeticTasks() {
         correctAnswer = num1 - num2;
         question = `${num1} - ${num2}`;
     }
-    else if (operator = "*") {
+    else if (operator === "*") {
         correctAnswer = num1 * num2;
         question = `${num1} * ${num2}`;
     }
 
-    const userAnswer = Number(prompt(`Решите пример: ${question}`));
+    const answerRaw = prompt(`Решите пример: ${question}`);
 
+    if (answerRaw === null) {
+        alert("Игра отменена");
+        return;
+    }
+
+    const userAnswer = Number(answerRaw);
+
+    if (answerRaw === "" || isNaN(userAnswer)) {
+        alert("Введите корректное число");
+        return;
+    }
     if (userAnswer === correctAnswer) {
         alert(`Верно!!!`)
     }
@@ -72,12 +98,18 @@ function arithmeticTasks() {
 function Shifter() {
     const userText = prompt(`Введите любое слово или фразу`);
 
-    if (userText !== null) {
-        const reversedText = userText.split("").reverse().join("");
-        alert(reversedText);
-    } else {
-        alert("Вы ничего не ввели.");
+    if (userText === null) {
+        alert("Вы отменили ввод");
+        return;
     }
+
+    if (userText === "") {
+        alert("Вы ничего не ввели");
+        return;
+    }
+
+    const reversedText = userText.split("").reverse().join("");
+    alert(reversedText);
 }
 
 
@@ -108,9 +140,28 @@ function startQuiz() {
         let message = currentQuestion.question + "\n";
         message += currentQuestion.options.join("\n");
 
-        const userAnswer = prompt(message);
+        const answerRaw = prompt(message);
 
-        if (Number(userAnswer) === currentQuestion.correctAnswer) {
+        if (answerRaw === null) {
+            alert("Вы отменили викторину");
+            return;
+        }
+
+        if (answerRaw === "") {
+            alert("Вы ничего не ввели");
+            i--;
+            continue;
+        }
+
+        const userAnswer = Number(answerRaw);
+
+        if (isNaN(userAnswer)) {
+            alert("Введите корректное число");
+            i--;
+            continue;
+        }
+
+        if (userAnswer === currentQuestion.correctAnswer) {
             score++;
         }
     }
@@ -123,13 +174,30 @@ function rockPaperScissors() {
 
     let userChoice = prompt("Выберите: камень, ножницы или бумага");
 
-    let options = ["камень", "ножницы", "бумага"];
+    if (userChoice === null) {
+        alert("Вы отменили игру");
+        return;
+    }
+
+    userChoice = userChoice.trim().toLowerCase();
+
+    if (userChoice === "") {
+        alert("Вы ничего не ввели");
+        return;
+    }
+
+    const options = ["камень", "ножницы", "бумага"];
+
+    if (!options.includes(userChoice)) {
+        alert("Введите корректный вариант: камень, ножницы или бумага");
+        return;
+    }
 
     function getRandomIndex(max) {
         return Math.floor(Math.random() * max);
     }
 
-    let computerChoice = options[getRandomIndex(options.length)];
+    const computerChoice = options[getRandomIndex(options.length)];
 
     let result;
 
@@ -142,7 +210,7 @@ function rockPaperScissors() {
     ) {
         result = "Вы победили!";
     } else {
-        result = "Вы проиграли!"
+        result = "Вы проиграли!";
     }
 
     alert(
@@ -151,3 +219,13 @@ function rockPaperScissors() {
         "\nРезультат: " + result
     );
 }
+
+const btn_color = document.querySelector('#btn_color');
+
+btn_color.addEventListener("click", () => {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let color = (`rgb(${r}, ${g}, ${b})`);
+    document.querySelector('main').style.backgroundColor = color;
+})
